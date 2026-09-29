@@ -81,7 +81,7 @@ public class GameControl : MonoBehaviour
                 if (roundNumber == 4)
                 {
 
-                    countRound3 = 20-round;
+                    countRound3 = (20-round)-3;
                     
                     
                     newWall.transform.position = new Vector3(10, countRound3, 0);

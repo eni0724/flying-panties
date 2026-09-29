@@ -4,7 +4,7 @@ public class MainCharacterControl : MonoBehaviour
     public float jumpForce;
     public Rigidbody2D playerRigid;
     public GameObject GameController;
-
+    bool jumpable = true;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -19,7 +19,7 @@ public class MainCharacterControl : MonoBehaviour
     void Update()
     {
         //jump
-        if (Input.GetKeyDown(KeyCode.Space) && isAlive)
+        if (Input.GetKeyDown(KeyCode.Space) && isAlive && jumpable)
         {
             
             
@@ -53,7 +53,7 @@ public class MainCharacterControl : MonoBehaviour
             playerRigid.gravityScale = 0f;
             playerRigid.linearVelocityY = 0f;
 
-            
+            jumpable = false;
 
 
         }
@@ -65,6 +65,8 @@ public class MainCharacterControl : MonoBehaviour
         {
             playerRigid.gravityScale = 1.5f;
             playerRigid.linearVelocityY = 0f;
+            jumpable = true;
+
 
             if (GameController.GetComponent<GameControl>().roundNumber == 3)
             {
