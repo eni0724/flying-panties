@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameControl : MonoBehaviour
@@ -22,6 +23,9 @@ public class GameControl : MonoBehaviour
 
     public GameObject round1Goal;
     public GameObject round2Goal;
+
+
+    public GameObject EndPanel;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -58,7 +62,7 @@ public class GameControl : MonoBehaviour
                 GameObject newWall = GetComponent<ObjectPool>().Get(); // generate wall after certain time
                 //random y of wall
                 float y = Random.Range(-4f, 2f);
-                newWall.transform.position = new Vector3(10, y, 0);
+                newWall.transform.position = new Vector3(12.1f, y, 0);
 
                 if(roundNumber == 2)
                 {
@@ -84,7 +88,7 @@ public class GameControl : MonoBehaviour
                     countRound3 = (20-round)-3;
                     
                     
-                    newWall.transform.position = new Vector3(10, countRound3, 0);
+                    newWall.transform.position = new Vector3(12.1f, countRound3, 0);
                     if(newWall.transform.position.y > 2f)
                     {
                         
@@ -164,7 +168,7 @@ public class GameControl : MonoBehaviour
                 //spawn building
                 building.SetActive(true);
                 float y = Random.Range(-11.2f, -5f);    //random y
-                building.transform.position = new Vector3(10,y,0);
+                building.transform.position = new Vector3(14.1f,y,0);
 
                 switch (roundNumber)
                 {
@@ -186,13 +190,24 @@ public class GameControl : MonoBehaviour
         }
 
         
+
+        //Active EndPanel
+        if(Player.GetComponent<MainCharacterControl>().isAlive == false)
+        {
+            Invoke("GameEnd", 2f);
+        }
+    }
+
+
+    void GameEnd()
+    {
+        EndPanel.SetActive(true);
     }
 
 
     
    
 
-   
 
 
 }
