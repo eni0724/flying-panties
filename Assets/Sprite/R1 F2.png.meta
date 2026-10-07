@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 6dd35b0943698df46baed3783bc34220
+guid: 3babc072f7765d8449349cd51fcd5d7c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2732335961055975492
-    second: "R1building 11 - \uBCF5\uC0AC\uBCF8_0"
+      213: -4544969418128392816
+    second: R1 F2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "R1building 11 - \uBCF5\uC0AC\uBCF8_0"
+      name: R1 F2_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cb7ab328beac41ad0800000000000000
-      internalID: -2732335961055975492
+      spriteID: 09d717df4660de0c0800000000000000
+      internalID: -4544969418128392816
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      "R1building 11 - \uBCF5\uC0AC\uBCF8_0": -2732335961055975492
+      R1 F2_0: -4544969418128392816
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
