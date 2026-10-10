@@ -31,7 +31,7 @@ public class WallControl : MonoBehaviour
         }
         
         //inactivate wall
-        if(GetComponent<Transform>().position.x <= -12.25f)
+        if(GetComponent<Transform>().position.x <= -12.25f && gameObject.tag != "BackGround")
         {
             gameObject.SetActive(false);
 

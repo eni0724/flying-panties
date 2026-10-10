@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Wall
   - Goal
+  - BackGround
   layers:
   - Default
   - TransparentFX

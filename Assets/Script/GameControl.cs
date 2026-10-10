@@ -9,13 +9,13 @@ public class GameControl : MonoBehaviour
     float wallGap;
     bool betweenRound =false;
 
-    float round;
+    int round;
     public float roundNumber;
 
     int movingWall =0;
 
 
-    float countRound3 = -4f;
+    int countRound3;
 
     public GameObject building;
 
@@ -32,7 +32,7 @@ public class GameControl : MonoBehaviour
     {
         Player = GameObject.FindGameObjectWithTag("Player");    //to check player is alive
         wallGap = 2f;
-        round = 3f;       //#of wall to end round
+        round = 3;       //#of wall to end round
         roundNumber = 1;
 
     }
@@ -85,22 +85,35 @@ public class GameControl : MonoBehaviour
                 if (roundNumber == 4)
                 {
 
-                    countRound3 = (20-round)-3;
-                    
-                    
-                    newWall.transform.position = new Vector3(12.1f, countRound3, 0);
-                    if(newWall.transform.position.y > 2f)
-                    {
-                        
-                        newWall.transform.position = new Vector3(10, 4f - countRound3, 0);
-                        newWall.GetComponent<Rigidbody2D>().linearVelocityY = 0;
-                    }
-                    if (newWall.transform.position.y < -4f)
-                    {
+                    countRound3 = round % 7 - 4;
 
-                        newWall.transform.position = new Vector3(10, -12 + countRound3, 0);
+                    if((round / 7) % 2 == 1)
+                    {
                         newWall.GetComponent<Rigidbody2D>().linearVelocityY = 0;
+                        newWall.transform.position = new Vector3(12.1f, countRound3, 0);
+                        Debug.Log(newWall.transform.position);
                     }
+                    if ((round / 7) % 2 == 0)
+                    {
+                        newWall.GetComponent<Rigidbody2D>().linearVelocityY = 0;
+                        newWall.transform.position = new Vector3(12.1f, (countRound3 * -1) - 2 , 0);
+                        Debug.Log(newWall.transform.position);
+                    }
+
+                    ////-4 ~  2
+                    //newWall.transform.position = new Vector3(12.1f, countRound3, 0);
+                    //if(newWall.transform.position.y > 2f)
+                    //{
+                        
+                    //    newWall.transform.position = new Vector3(12.1f, 4f - countRound3, 0);
+                    //    newWall.GetComponent<Rigidbody2D>().linearVelocityY = 0;
+                    //}
+                    //if (newWall.transform.position.y < -4f)
+                    //{
+
+                    //    newWall.transform.position = new Vector3(12.1f, -12 + countRound3, 0);
+                    //    newWall.GetComponent<Rigidbody2D>().linearVelocityY = 0;
+                    //}
 
                 }
 
