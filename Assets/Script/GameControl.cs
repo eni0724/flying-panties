@@ -23,6 +23,7 @@ public class GameControl : MonoBehaviour
 
     public GameObject round1Goal;
     public GameObject round2Goal;
+    public GameObject round3Goal;
 
 
     public GameObject EndPanel;
@@ -34,6 +35,11 @@ public class GameControl : MonoBehaviour
         wallGap = 2f;
         round = 3;       //#of wall to end round
         roundNumber = 1;
+
+        //round1Goal.SetActive(false);
+        //round2Goal.SetActive(false);
+        //round3Goal.SetActive(false);
+
 
     }
 
@@ -56,7 +62,7 @@ public class GameControl : MonoBehaviour
 
             //count how many walls to end the round
             round--;
-            if (round !=0)
+            if (round > 0)
             {
                 //activate the wall if round didn't end
                 GameObject newWall = GetComponent<ObjectPool>().Get(); // generate wall after certain time
@@ -86,35 +92,23 @@ public class GameControl : MonoBehaviour
                 {
 
                     countRound3 = round % 7 - 4;
-
-                    if((round / 7) % 2 == 1)
+                    //zigzag
+                    if (round != 0)
                     {
-                        newWall.GetComponent<Rigidbody2D>().linearVelocityY = 0;
-                        newWall.transform.position = new Vector3(12.1f, countRound3, 0);
-                        Debug.Log(newWall.transform.position);
+
+
+                        if ((round / 7) % 2 == 1)
+                        {
+                            newWall.GetComponent<Rigidbody2D>().linearVelocityY = 0;
+                            newWall.transform.position = new Vector3(12.1f, countRound3, 0);
+                        }
+                        if ((round / 7) % 2 == 0)
+                        {
+                            newWall.GetComponent<Rigidbody2D>().linearVelocityY = 0;
+                            newWall.transform.position = new Vector3(12.1f, (countRound3 * -1) - 2, 0);
+                        }
                     }
-                    if ((round / 7) % 2 == 0)
-                    {
-                        newWall.GetComponent<Rigidbody2D>().linearVelocityY = 0;
-                        newWall.transform.position = new Vector3(12.1f, (countRound3 * -1) - 2 , 0);
-                        Debug.Log(newWall.transform.position);
-                    }
-
-                    ////-4 ~  2
-                    //newWall.transform.position = new Vector3(12.1f, countRound3, 0);
-                    //if(newWall.transform.position.y > 2f)
-                    //{
-                        
-                    //    newWall.transform.position = new Vector3(12.1f, 4f - countRound3, 0);
-                    //    newWall.GetComponent<Rigidbody2D>().linearVelocityY = 0;
-                    //}
-                    //if (newWall.transform.position.y < -4f)
-                    //{
-
-                    //    newWall.transform.position = new Vector3(12.1f, -12 + countRound3, 0);
-                    //    newWall.GetComponent<Rigidbody2D>().linearVelocityY = 0;
-                    //}
-
+                    
                 }
 
 
@@ -172,6 +166,10 @@ public class GameControl : MonoBehaviour
                 round = 20;
 
             }
+            if (roundNumber == 5)
+            {
+                round = -1;
+            }
 
 
 
@@ -189,12 +187,22 @@ public class GameControl : MonoBehaviour
                     case 2: 
                         round1Goal.SetActive(true);
                         round2Goal.SetActive(false);
+                        round3Goal.SetActive(false);
                         break;
 
                     case 3:
                         round1Goal.SetActive(false);
                         round2Goal.SetActive(true);
+                        round3Goal.SetActive(false);
                         break;
+
+                    case 5:
+                        round1Goal.SetActive(false);
+                        round2Goal.SetActive(false);
+                        round3Goal.SetActive(true);
+                        break;
+
+
 
                 }
 
