@@ -178,7 +178,7 @@ public class GameControl : MonoBehaviour
             {
                 //spawn building
                 building.SetActive(true);
-                float y = Random.Range(-11.2f, -5f);    //random y
+                float y = Random.Range(-13.5f, -6.5f);    //random y
                 building.transform.position = new Vector3(14.1f,y,0);
 
                 switch (roundNumber)

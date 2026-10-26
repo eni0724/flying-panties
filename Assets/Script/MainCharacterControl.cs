@@ -55,6 +55,12 @@ public class MainCharacterControl : MonoBehaviour
 
             jumpable = false;
 
+            //end game
+            if (GameController.GetComponent<GameControl>().roundNumber == 5)
+            {
+                isAlive = false;
+                gameObject.SetActive(false);
+            }
 
         }
 
@@ -67,13 +73,13 @@ public class MainCharacterControl : MonoBehaviour
             playerRigid.linearVelocityY = 0f;
             jumpable = true;
 
-
+            //jumpforce down when round3
             if (GameController.GetComponent<GameControl>().roundNumber == 3)
             {
                 GetComponent<MainCharacterControl>().jumpForce = 4f;
             }
 
-
+            
         }
     }
 

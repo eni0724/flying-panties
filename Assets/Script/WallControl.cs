@@ -38,7 +38,7 @@ public class WallControl : MonoBehaviour
         }
 
         
-        if(GetComponent<Transform>().position.y >= 2.1f)
+        if(GetComponent<Transform>().position.y >= 2.1f )
         {
             wallRigid.linearVelocityY = -1f;
             Debug.Log(123);
