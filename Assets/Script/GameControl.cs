@@ -33,7 +33,7 @@ public class GameControl : MonoBehaviour
     {
         Player = GameObject.FindGameObjectWithTag("Player");    //to check player is alive
         wallGap = 2f;
-        round = 3;       //#of wall to end round
+        round = 20;       //#of wall to end round 1
         roundNumber = 1;
 
         //round1Goal.SetActive(false);
@@ -153,7 +153,7 @@ public class GameControl : MonoBehaviour
             roundNumber++;
             if (roundNumber == 2)
             {
-                round = 3;
+                round = 35;
             }
             if (roundNumber == 3)
             {
@@ -163,7 +163,7 @@ public class GameControl : MonoBehaviour
             }
             if (roundNumber == 4)
             {
-                round = 20;
+                round = 30;
 
             }
             if (roundNumber == 5)

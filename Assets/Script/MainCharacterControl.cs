@@ -26,6 +26,9 @@ public class MainCharacterControl : MonoBehaviour
             playerRigid.linearVelocityY = 0f;
 
             playerRigid.AddForceY(jumpForce,ForceMode2D.Impulse);
+
+
+            GetComponent<Animator>().SetTrigger("Jump");
             
         }
 
